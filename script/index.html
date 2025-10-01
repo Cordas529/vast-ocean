@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Финансовая игра | Газпромбанк Тех</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="game-data.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">Газпромбанк Тех</div>
+    <div class="user-stats">
+      <span class="stat"><span id="score">0</span> 🏆</span>
+      <span class="stat"><span id="coins">0</span> 💰</span>
+    </div>
+  </header>
+
+  <main class="game-grid">
+    <div class="game-card" data-topic="deposits">
+      <div class="emoji">🏦</div>
+      <h2>Наставник: Процентус Мудрый</h2>
+      <p>Депозиты</p>
+    </div>
+    <div class="game-card" data-topic="security">
+      <div class="emoji">🛡️</div>
+      <h2>Наставник: Страж Алармус</h2>
+      <p>Защита от мошенников</p>
+    </div>
+    <div class="game-card" data-topic="investments">
+      <div class="emoji">📈</div>
+      <h2>Наставник: Инвестра Биржевна</h2>
+      <p>Инвестиции</p>
+    </div>
+    <div class="game-card" data-topic="insurance">
+      <div class="emoji">💼</div>
+      <h2>Наставник: Доктор Гарант</h2>
+      <p>Страхование</p>
+    </div>
+  </main>
+</body>
+</html>

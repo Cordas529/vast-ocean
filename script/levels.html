@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Уровни | Газпромбанк Тех</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="game-data.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <button id="btn-back-to-main" class="back-btn">← Назад</button>
+    <div class="user-stats">
+      <span class="stat"><span id="score">0</span> 🏆</span>
+      <span class="stat"><span id="coins">0</span> 💰</span>
+    </div>
+  </header>
+
+  <main class="levels-container">
+    <div class="mentor-header">
+      <div class="emoji" id="mentor-emoji">🏦</div>
+      <h1 id="mentor-name">Процентус Мудрый</h1>
+      <p id="topic-title">Депозиты</p>
+    </div>
+
+    <div class="levels-grid" id="levels-grid">
+      <!-- Генерируется JS: Уровень 1, 2, 3 -->
+    </div>
+  </main>
+</body>
+</html>

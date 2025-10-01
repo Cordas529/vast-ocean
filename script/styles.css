@@ -1,0 +1,406 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', 'Gazprombank Sans', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.5;
+}
+
+/* Хедер */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background-color: #1919EF; /* Фиалка */
+  color: white;
+  width: 100%;
+}
+
+.logo {
+  font-family: 'Montserrat', 'Halvar Breitschrift', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.user-stats {
+  display: flex;
+  gap: 16px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Сетка наставников */
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.game-card {
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.emoji {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.game-card h2 {
+  font-family: 'Montserrat', 'Halvar Breitschrift', sans-serif;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #1919EF;
+}
+
+.game-card p {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Адаптация под мобильные */
+@media (max-width: 600px) {
+  .app-header {
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .user-stats {
+    align-self: flex-end;
+    gap: 12px;
+  }
+
+  .game-grid {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .game-card {
+    padding: 20px;
+  }
+
+  .emoji {
+    font-size: 28px;
+  }
+
+  .game-card h2 {
+    font-size: 16px;
+  }
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.level-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mentor-info {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.mentor-info .emoji {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.question-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-btn {
+  padding: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.answer-btn:hover {
+  border-color: #1919EF;
+  background: #f0f0ff;
+}
+
+.feedback {
+  background: #e6f7ff;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#btn-next {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: #1919EF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Золотой блок при идеальном прохождении */
+.perfect-topic {
+  border: 2px solid gold;
+  box-shadow: 0 0 10px gold;
+  position: relative;
+}
+
+.perfect-topic::after {
+  content: "✅";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: gold;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.levels-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mentor-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.mentor-header .emoji {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  justify-items: center;
+}
+
+.level-item {
+  width: 80px;
+  height: 80px;
+  background: #f8f9fa; /* как у основных карточек */
+  border: 2px solid #e0e0e0;
+  border-radius: 12px; /* слегка скруглённые углы, но квадрат */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.level-item:hover {
+  border-color: #1919EF;
+  background: #f0f0ff;
+}
+
+/* Идеальный уровень: только рамка + значок, фон не золотой */
+.level-item.perfect {
+  border-color: gold;
+  box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+}
+
+.level-item.perfect::after {
+  content: "✅";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: gold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #000;
+  border: 1px solid #d4af37;
+}
+
+
+/* === АНИМАЦИИ === */
+
+/* Появление карточек на главной */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.game-card, .level-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Анимация — только как улучшение при загрузке */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.game-card:nth-child(1) { animation-delay: 0.1s; }
+.game-card:nth-child(2) { animation-delay: 0.2s; }
+.game-card:nth-child(3) { animation-delay: 0.3s; }
+.game-card:nth-child(4) { animation-delay: 0.4s; }
+
+.level-item:nth-child(1) { animation-delay: 0.1s; }
+.level-item:nth-child(2) { animation-delay: 0.2s; }
+.level-item:nth-child(3) { animation-delay: 0.3s; }
+
+/* Анимация при выборе ответа */
+.answers.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.feedback.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: feedbackPop 0.4s forwards;
+}
+
+@keyframes feedbackPop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  70% {
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация идеального ответа */
+@keyframes perfectGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 215, 0, 0); }
+}
+
+.level-item.perfect,
+.game-card.perfect-topic {
+  animation: perfectGlow 1.2s ease-in-out;
+}
+
+/* Плавные переходы для кнопок */
+.answer-btn {
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.answer-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Плавное появление значка ✅ */
+.level-item.perfect::after {
+  animation: popIn 0.3s ease-out 0.2s forwards;
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Плавная смена экранов (опционально) */
+body {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
